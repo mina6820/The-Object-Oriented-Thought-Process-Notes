@@ -29,4 +29,27 @@ Three important things you can do to develop a good sense of the OO thought proc
 Knowing your end users is always the most important issue when doing any kind of design.
 
 
+When designing a class, the general rule is to always provide the user with as little knowledge of the inner workings of the class as possible. To accomplish this, follow these simple rules:
+• Give the users only what they absolutely need. In effect, this means the class has as few interfaces as possible. When you start designing a class, start with a minimal interface. The design of a class is iterative, so you will soon discover that the minimal set of interfaces might not suffice. This is fine.
+• It is better to have to add interfaces because users really need it than to give the users more interfaces than they need. At times it is highly problematic for the user to have access to certain interfaces. For example, you don’t want an interface that provides salary information to all users—only the ones who need to know.
+• For the moment, let’s use a hardware example to illustrate our software example.
+Imagine handing a user a PC box without a monitor or a keyboard. Obviously, the PC would be of little use. You have just provided the user with the minimal set of interfaces to the PC. However, this minimal set is insufficient, and it immediately becomes necessary to add interfaces.
+• Public interfaces define what the users can access. If you initially hide the entire class from the user by making the interfaces private, when programmers start using the class, you will be forced to make certain methods public—these methods thus become the public interface.
+• It is vital to design classes from a user’s perspective and not from an information
+systems viewpoint. Too often designers of classes (not to mention any other kind of
+software) design the class to make it fit into a specific technological model. Even if the designer takes a user’s perspective, it is still probably a technician user’s perspective, and the class is designed with an eye on getting it to work from a technology standpoint and not from ease of use for the user.
+• Make sure when you are designing a class that you go over the requirements and the design with the people who will actually use it—not just developers (this includes all levels of testing). The class will most likely evolve and need to be updated when a prototype of the system is built.
+
+Initially, you think about how the object is used and not how it is built
+
+Doing things in an OO way is more of an art than a science
+
+
+Chapter 3
+In Chapter 3, “More Object-Oriented Concepts,” we discuss the object life cycle: it is born, it lives, and it dies. While it is alive, it might transition through many states. For example, a Database Reader object is in one state if the database is open and another state if the database is closed. How this is represented depends on the design of the class.
+The general rule is that you should always provide a constructor, even if you do not plan to do anything inside it. You can provide a constructor with nothing in it and then add to it later. Although there is technically nothing wrong with using the default constructor provided by the compiler, for documentation and maintenance purposes, it is always nice to know exactly what your code looks like.
+
+
+It is extremely rare for a class to be written perfectly the first time. In most, if not all, situations, things will go wrong. Any developer who does not plan for problems is inviting disaster.
+
 
