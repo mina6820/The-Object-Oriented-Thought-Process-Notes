@@ -52,4 +52,15 @@ The general rule is that you should always provide a constructor, even if you do
 
 It is extremely rare for a class to be written perfectly the first time. In most, if not all, situations, things will go wrong. Any developer who does not plan for problems is inviting disaster.
 
+A Shared Method
+A constructor is a good example of a method that is shared by all instances of a class.
+Methods represent the behaviors of an object; the state of the object is represented by attributes. There are three types of attributes:
+• Local attributes
+• Object attributes
+• Class attributes
 
+Deep Versus Shallow Copies
+A deep copy occurs when all the references are followed and new copies are created for all referenced objects. Many levels might be involved in a deep copy. For objects with references to many objects, which in turn might have references to even more objects, the copy itself can create significant overhead. A shallow copy would simply copy the reference and not follow the levels. Gilbert and McCarty have a good discussion about what shallow and deep hierarchies are in Object-Oriented Design in Java in a section called “Prefer a Tree to a Forest.
+
+
+Chapter 4
