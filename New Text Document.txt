@@ -70,4 +70,53 @@ you do not want object A to have the capability to inspect or change the attribu
 Sometimes accessors are referred to as getters and setters, and sometimes they’re simply called get() and set().
 In general, the setters are used to ensure a level of data integrity.
 
+Chapter 5
+Extending the Interface
+Even if the public interface of a class is insufficient for a certain application, object technology easily allows the capability to extend and adapt this interface. In short, if properly designed, a new class can utilize an existing class and create a new class with an extended interface.
+A class is most useful if the implementation can change without affecting
+the users. Basically, a change to the implementation should not necessitate a change in the user’s application code. Again, the best way to enable change of behaviors is via the use of interfaces and composition.
+
+a constructor should put an object into an initial, safe state
+Memory Leaks
+When an object fails to properly release the memory that it acquired during an object's life cycle, the memory is lost to the entire operating system as long as the application that created the object is executing. For example, suppose multiple objects of the same class are created and then destroyed, perhaps in some sort of loop. If these objects fail to release their memory when they go out of scope, this memory leak slowly depletes the available pool of system memory. At some point, it is possible that enough memory will be consumed that the system will have no available memory left to allocate. This means that any application executing in the system would be unable to acquire any memory. This could put the application in an unsafe state and even lock up the system.
+The general rule is that the application should never crash. When an error is encountered, the system should either fix itself and continue, or at minimum, exit gracefully without losing any data that’s important to the user.
+
+We can safely say that almost no class lives in isolation. In most cases, there is little reason to build a class if it is not going to interact with other classes, unless the class will be used only once.
+ The process of designing classes forces you to organize your code into many (ideally) manageable pieces. Separate pieces of code tend to be more maintainable than larger pieces of code (at least that’s the idea). One of the best ways to promote maintainability is to reduce interdependent code—that is, changes in one class have no impact or minimal impact on other classes.
+To send an object over a wire (for example, to a file, over a network), the system must deconstruct the object (flatten it out), send it over the wire, and then reconstruct it on the other end of the wire. This process is called serializing an object. The act of sending the object across a wire is called marshaling an object. A serialized object, in theory, can be written to a flat file and retrieved later, in the same state in which it was written. The major issue here is that the serialization and deserialization must use the same specifications. It is sort of like an encryption algorithm. If one object encrypts a string, the object that wants to decrypt it must use the same encryption algorithm.
+
+
+
+
+
+
+
+
+
+Chapter 6
+This chapter focuses on designing good systems. A system can be defined as classes that interact with each other.
+
+One fallacy is that there is one true (best) design methodology. This is certainly not the case. There is no right or wrong way to create a design. Many design methodologies are available today, and they all have their proponents. However, the primary issue is not which design method to use, but whether to use a method at all. This can be expanded beyond design to encompass the entire software development process. Some organizations do not follow a standard software development process, or they have one and don’t adhere to it. The most important factor in creating a good design is to find a process that you and your organization
+feel comfortable with, stick to it, and keep refining it. It makes no sense to implement a design process that no one will follow.
+
+Generally, a solid OO design process includes the following steps:
+1. Doing the proper analysis
+2. Developing a statement of work that describes the system
+3. Gathering the requirements from this statement of work
+4. Developing a prototype for the user interface
+5. Identifying the classes
+6. Determining the responsibilities of each class
+7. Determining how the various classes interact with each other
+8. Creating a high-level model that describes the system to be built
+
+
+
+Simply put, the reasons to identify requirements early and keep design changes to a minimum are as follows:
+• The cost of a requirement/design change in the design phase is relatively small.
+• The cost of a design change in the implementation phase is significantly higher.
+• The cost of a design change after the deployment phase is astronomical when
+compared to the first item
+
+The statement of work (SOW) is a document that describes the system. Although determining the requirements is the ultimate goal of the analysis phase, at this point the requirements are not yet in a final format. The SOW should give anyone who reads it a complete, high level understanding of the system. Regardless of how it is written, the SOW must represent the complete system and be clear about how the system will look and feel.
+
 
