@@ -125,4 +125,19 @@ Chapter 7
 The good news is that the discussions about whether to use inheritance or composition are a natural progression toward some seasoned middle ground. As in all philosophical debates, there are passionate arguments on both sides. Fortunately, as is normally the case, these heated discussions have led to a more sensible understanding of how to utilize the technologies.
 The bottom line is that inheritance and composition are both important techniques in building OO systems. Designers and developers need to take the time to understand the strengths and weaknesses of both and to use each in the proper contexts.
 
+Is-a
+One of the primary rules of OO design is that public inheritance is represented by an is-a relationship. In the case of interfaces you might add “behaves like” (implements). The data (attributes) that are inherited are the “is,” the interfaces describing encapsulated behaviors are “acts like,” and composition is “has a.” The lines get pretty blurry, however.
+
+This provides us with some significant benefits. First, when we wrote
+the GoldenRetriever class, we did not have to reinvent part of the wheel by rewriting the bark and pant methods. Not only does this save some design and coding time, but it saves testing and maintenance time as well. The bark and pant methods are written only once and, assuming that they were properly tested when the Dog class was written, they do not need to be heavily tested again; but it does need to be retested because there are new interfaces, and so on.
+
+Consider the object model of the Dog class hierarchy. We started with a single class, called Dog, and we factored out some of the commonality between various breeds of dogs. This concept, sometimes called generalization-specialization, is yet another important consideration when using inheritance. The idea is that as you make your way down the inheritance tree, things get more specific. The most general case is at the top of the tree. In our Dog inheritance tree, the class Dog is at the top and is the most general category. The various breeds— the GoldenRetriever, LhasaApso, and Basenji classes—are the most specific. The idea of inheritance is to go from the general to the specific by factoring out commonality.
+
+
+In theory, factoring out as much commonality as possible is great. However, as in all design issues, sometimes it really is too much of a good thing. Although factoring out as much commonality as possible might represent real life as closely as possible, it might not represent your model as closely as possible. The more you factor out, the more complex your system gets. So you have a conundrum: Do you want to live with a more accurate model or a system with less complexity? You must make this choice based on your situation, for there are no hard guidelines
+to make the decision
+
+Making Design Decisions with the Future in Mind
+You might at this point say, “Never say never.” Although you might not breed yodeling dogs now, sometime in the future you might want to do so. If you do not design for the possibility of yodeling dogs now, it will be much more expensive to change the system later to include them. This is yet another of the many design decisions that you have to make. You could possibly override the bark() method to make it yodel; however, this is not intuitive, and some people will expect a method called bark() to actually bark
+
 
