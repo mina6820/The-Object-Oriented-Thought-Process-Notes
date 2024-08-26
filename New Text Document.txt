@@ -141,6 +141,16 @@ Making Design Decisions with the Future in Mind
 You might at this point say, “Never say never.” Although you might not breed yodeling dogs now, sometime in the future you might want to do so. If you do not design for the possibility of yodeling dogs now, it will be much more expensive to change the system later to include them. This is yet another of the many design decisions that you have to make. You could possibly override the bark() method to make it yodel; however, this is not intuitive, and some people will expect a method called bark() to actually bark
 Stephen Gilbert and Bill McCarty define encapsulation as “the process of packaging your program, dividing each of its classes into two distinct parts: the interface and the implementation.” This is the message that has been presented over and over in this book.
 
-How Inheritance Weakens Encapsulation ?
+How Inheritance Weakens Encapsulation ??
 
 
+
+
+The premise of polymorphism is that you can send messages to various objects, and they will respond according to their object’s type.
+Many well-respected OO designers have stated that composition should be used
+whenever possible, and inheritance should be used only when necessary.
+
+
+Chapter 8
+The online dictionary, Merriam-Webster (https://www.merriam-webster.com),
+defines a contract as a “binding agreement between two or more persons or parties, especially: one legally enforceable.
