@@ -154,3 +154,7 @@ whenever possible, and inheritance should be used only when necessary.
 Chapter 8
 The online dictionary, Merriam-Webster (https://www.merriam-webster.com),
 defines a contract as a “binding agreement between two or more persons or parties, especially: one legally enforceable.
+
+One way a contract is implemented is via an abstract class. An abstract class is a class that contains one or more methods that do not have any implementation provided. Suppose that you have an abstract class called Shape. It is abstract because you cannot instantiate it. If you ask someone to draw a shape, the first thing the person will most likely ask you is, “What kind of shape?” Thus, the concept of a shape is abstract. However, if someone asks you to draw a circle,
+this does not pose quite the same problem, because a circle is a concrete concept. You know what a circle looks like. You also know how to draw other shapes, such as rectangles.
+
