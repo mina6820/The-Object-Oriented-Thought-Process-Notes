@@ -157,4 +157,53 @@ defines a contract as a “binding agreement between two or more persons or part
 
 One way a contract is implemented is via an abstract class. An abstract class is a class that contains one or more methods that do not have any implementation provided. Suppose that you have an abstract class called Shape. It is abstract because you cannot instantiate it. If you ask someone to draw a shape, the first thing the person will most likely ask you is, “What kind of shape?” Thus, the concept of a shape is abstract. However, if someone asks you to draw a circle,
 this does not pose quite the same problem, because a circle is a concrete concept. You know what a circle looks like. You also know how to draw other shapes, such as rectangles.
+One way a contract is implemented is via an abstract class. An abstract class is a class that contains one or more methods that do not have any implementation provided. Suppose that you have an abstract class called Shape. It is abstract because you cannot instantiate it. If you ask someone to draw a shape, the first thing the person will most likely ask you is, “What kind of shape?” Thus, the concept of a shape is abstract. However, if someone asks you to draw a circle,
+this does not pose quite the same problem, because a circle is a concrete concept. You know what a circle looks like. You also know how to draw other shapes, such as rectangles.
+
+Although the concept of abstract classes revolves around abstract methods, nothing is stopping Shape from providing some implementation. Remember that the definition for an abstract class is that it contains one or more abstract methods—this implies that an abstract class can also provide concrete methods. For example, although Circle and Rectangle implement the draw() method differently, they share the same mechanism for setting the color of the shape. So, the Shape class can have a color attribute and a method to set the color. This setColor() method is a concrete implementation and would be inherited by both Circle and Rectangle. The only methods that a subclass must implement are the ones that the superclass declares as abstract. These abstract methods are the contract.
+
+Be aware that in the cases of Shape, Circle, and Rectangle, we are dealing with a strict inheritance relationship, as opposed to an interface, which we discuss in the next section. Circle is-a Shape, and Rectangle is-a Shape.
+
+Interface Terminology
+This is another one of those times when software terminology gets confusing—very confusing. Be aware that you can use the term interface in several ways, so be sure to use each in the proper context. First, the graphical user interface (GUI) is widely used when referring to the visual interface that a user interacts with—often on a monitor. Second, the interface to a class is basically the signatures of its methods. Third, in Objective-C and Swift, you break up the code into physically separate modules called the interface and implementation.
+Fourth, an interface and a protocol are basically a contract between a parent class and a child class. Can you think of any others?
+The obvious question is this: If an abstract class can provide the same functionality as an interface, why do Java and .NET bother to provide this construct called an interface? And why does Objective-C and Swift provide the protocol?
+For one thing, C++ supports multiple inheritance, whereas Java, Objective-C, Swift, and .NET do not. Although Java, Objective-C, Swift, and .NET classes can inherit from only one parent class, they can implement many interfaces. Using more than one abstract class constitutes multiple inheritance; thus, Java and .NET cannot go this route. In short, when using an interface, you do not have to concern yourself with a formal inheritance structure—you can theoretically add an interface to any class if the design makes sense. However, an abstract class requires you to inherit from that abstract class and, by extension, all of its potential parents.
+
+Because of these considerations, interfaces are often thought to be a workaround for the lack of multiple inheritance. This is not technically true. Interfaces are a separate design technique, and although they can be used to design applications that could be done with multiple inheritance, they do not replace or
+circumvent multiple inheritance.
+
+notice that Nameable is not declared as a class but as an interface. Because of this,
+both methods, getName() and setName(), are considered abstract and no implementation is provided. An interface, unlike an abstract class, can provide no implementation at all. As a result, any class that implements an interface must provide the implementation for all methods
+
+
+
+
+if both abstract classes and interfaces provide abstract methods, what is the real difference between the two? As we saw before, an abstract class can provides both abstract and concrete methods, whereas an interface provides only abstract methods Why is there such a difference?
+Assume that we want to design a class that represents a dog, with the intent of adding more mammals later. The logical move would be to create an abstract class called Mammal:
+
+public abstract class Mammal {
+public void generateHeat() {System.out.println("Generate heat");}
+public abstract void makeNoise();
+}
+This class has a concrete method called generateHeat()and an abstract method
+called makeNoise(). The method generateHeat()is concrete because all mammals generate heat. The method makeNoise()is abstract because each mammal will make noise differently.Let’s also create a class called Head that we will use in a composition relationship:
+public class Head {
+String size;
+public String getSize() {
+return size;
+}
+public void setSize(String aSize) { size = aSize; }
+}
+Head has two methods: getSize() and setSize(). Although composition might not shed much light on the difference between abstract classes and interfaces, using composition in this example does illustrate how composition relates to abstract classes and interfaces in the overall design of an object-oriented system. I feel that this is important because the example is more complete. Remember that there are two ways to build object relationships: the is-a relationship, represented by inheritance, and the has-a relationship, represented by composition. The
+question is: Where does the interface fit in?
+To answer this question and tie everything together, let’s create a class called Dog that is a subclass of Mammal, implements Nameable, and has a Head object
+In a nutshell, Java and .NET build objects in three ways: inheritance, interfaces, and
+composition. Note the dashed line in Figure 8.5 that represents the interface. This example illustrates when you should use each of these constructs. When do you choose an abstract class? When do you choose an interface? When do you choose composition? Let’s explore further. You should be familiar with the following concepts:
+• Dog is a Mammal, so the relationship is inheritance.
+• Dog implements Nameable, so the relationship is an interface.
+• Dog has a Head, so the relationship is composition.
+
+The key here is that classes in a strict inheritance relationship must be related. For example, in this design, the Dog class is directly related to the Mammal class. A dog is a mammal. Dogs and lizards are not related at the mammal level because you can’t say that a lizard is a mammal. However, interfaces can be used for classes that are not related. You can name a dog just as well as you can name a lizard. This is the key difference between using an abstract class and using an interface.
+
 
