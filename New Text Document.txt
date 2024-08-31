@@ -207,3 +207,30 @@ composition. Note the dashed line in Figure 8.5 that represents the interface. T
 The key here is that classes in a strict inheritance relationship must be related. For example, in this design, the Dog class is directly related to the Mammal class. A dog is a mammal. Dogs and lizards are not related at the mammal level because you can’t say that a lizard is a mammal. However, interfaces can be used for classes that are not related. You can name a dog just as well as you can name a lizard. This is the key difference between using an abstract class and using an interface.
 
 
+Chapter 9
+Another major advantage in using composition is that systems and subsystems can be built independently, and perhaps more importantly, tested and maintained independently.
+
+
+
+There is no question that software systems are quite complex. To build quality software, you must follow one overriding rule to be successful: Keep things as simple as possible. For large software systems to work properly and be easily maintained, they must be broken into smaller, more manageable parts.
+
+• “Stable complex systems usually take the form of a hierarchy, where each
+system is built from simpler subsystems, and each subsystem is built from simpler subsystems still.—You might already be familiar with this principle because it forms the basis for functional decomposition, the method behind procedural software development. In object-oriented design, you apply the same principles to composition—building complex objects from simpler pieces.
+• “Stable, complex systems are nearly decomposable.”—This means you can
+identify the parts that make up the system and can tell the difference between interactions between the parts and inside the parts. Stable systems have fewer links between their parts than they have inside their parts. Thus, a modular stereo system, with simple links between the speakers, turntable, and amplifier, is inherently more stable than an integrated system, which isn’t easily decomposable.
+• “Stable complex systems are almost always composed of only a few different
+kinds of subsystems, arranged in different combinations.”—Those subsystems, in
+turn, are generally composed of only a few different kinds of parts.
+• “Stable systems that work have almost always evolved from simple systems
+that worked.”—Rather than build a new system from scratch—reinventing the wheel— the new system builds on the proven designs that went before it.
+
+Composition is another area in OO technologies where there is a question of which came first, the chicken or the egg. Some texts say that composition is a form of association, and some say that an association is a form of composition. In any event, in this book, we consider inheritance and composition the two primary ways to build classes. Thus, in this book, association is considered a form of
+composition.
+Aggregation Versus Association
+An aggregation is a complex object composed of other objects. An association is used when one object wants another object to perform a service for it.
+
+No One Right Answer
+As usual, there isn't a single, absolutely correct answer when it comes to making a design decision. Design is not an exact science. Although we can make general rules to live by, these rules are not hard
+and fast.
+
+
